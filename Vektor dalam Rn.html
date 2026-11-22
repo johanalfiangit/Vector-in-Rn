@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matematika Teknik 1 | Vektor Rⁿ — Pertemuan 11</title>
+<style>
+:root{--red:#c9252b;--red2:#ed4141;--yellow:#ffd43b;--gold:#f2b900;--ink:#29251d;--muted:#6e675b;--paper:#fffdf5;--cream:#fff5d6;--line:#eadba8;--white:#fff;--green:#167a50;--shadow:0 12px 32px rgba(95,63,0,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff9e8;color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.hero{background:linear-gradient(120deg,#ffe36b,#fff0a8 65%,#ffd43b);border-bottom:6px solid var(--red);padding:30px max(22px,calc((100% - 1180px)/2)) 28px;position:relative;overflow:hidden}
+.hero:after{content:"∑  →  ∥v∥";position:absolute;right:5%;bottom:-25px;font-size:92px;font-weight:900;color:#c9252b;opacity:.08;transform:rotate(-8deg)}
+.kicker{font-size:12px;font-weight:900;letter-spacing:1.4px;color:#8e1b1f;text-transform:uppercase}
+h1{font-size:clamp(30px,4vw,48px);line-height:1.08;margin:8px 0 12px;max-width:850px;letter-spacing:-1.5px}
+.hero p{max-width:780px;margin:0;color:#55451e}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{background:var(--red);color:white;border-radius:12px;padding:9px 14px;font-weight:800;font-size:13px}.pill.light{background:#fff7d7;color:#6c4c00;border:1px solid #e8c64e}
+nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);padding:10px max(16px,calc((100% - 1180px)/2));display:flex;gap:8px;overflow:auto}
+nav a{white-space:nowrap;text-decoration:none;color:#624b11;background:#fff0b5;padding:8px 13px;border-radius:30px;font-size:13px;font-weight:800}nav a:hover{background:var(--red);color:white}
+.wrap{max-width:1180px;margin:22px auto;padding:0 18px}.layout{display:grid;grid-template-columns:260px 1fr;gap:18px;align-items:start}
+aside,.panel,.module-card{background:white;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+aside{padding:17px;position:sticky;top:62px;max-height:calc(100vh - 80px);overflow:auto}
+aside h3{margin:0 0 10px;font-size:15px}.module-list{display:grid;gap:6px}.module-list button{text-align:left;border:0;background:#fff8df;border-radius:10px;padding:9px 10px;color:#51401a;cursor:pointer;font:inherit;font-size:12px}.module-list button.active{background:var(--red);color:#fff;font-weight:800}.module-list small{opacity:.75}
+main{min-width:0}.panel{padding:22px;margin-bottom:18px}.section-title{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-size:21px}.num{background:var(--yellow);border:1px solid #e6b900;border-radius:9px;padding:3px 8px;font-size:12px;font-weight:900}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.concept{background:#fff9e5;border:1px solid var(--line);border-radius:14px;padding:15px}.concept h3{margin:0 0 6px;font-size:16px}.formula{background:#fffdf5;border:1px dashed #d6b54d;padding:12px;border-radius:12px;margin:10px 0;text-align:center;font-family:Cambria,Georgia,serif;font-size:18px;overflow-wrap:anywhere}
+.note{border-left:4px solid var(--gold);background:#fff5cf;padding:11px 13px;border-radius:8px;margin:12px 0}
+.controls{display:grid;grid-template-columns:repeat(4,minmax(90px,1fr));gap:10px;margin:12px 0}.field label{display:block;font-size:12px;color:var(--muted);font-weight:800;margin-bottom:4px}.field input,.field select{width:100%;padding:10px;border:1px solid #d9c98f;border-radius:10px;background:#fffef9;font:inherit;color:var(--ink)}input:focus,select:focus{outline:3px solid #ffe68b;border-color:var(--gold)}
+button.action{border:0;border-radius:11px;background:var(--red);color:#fff;padding:11px 16px;font-weight:900;cursor:pointer}button.action:hover{background:#a91e23}button.secondary{background:#fff0b5;color:#5b4300;border:1px solid #e7c34a}
+.result{background:#fff6d8;border:1px solid #ecd27c;border-radius:13px;padding:14px;margin-top:12px}.result strong{color:#8d1b20}.result .big{font-size:20px;font-weight:900;color:#8e1b20}
+.visuals{display:grid;grid-template-columns:1fr 1fr;gap:12px}.visual{background:#fffdf6;border:1px solid var(--line);border-radius:14px;padding:10px;min-width:0}.visual h4{margin:2px 4px 8px;font-size:13px}.visual svg{width:100%;height:auto;display:block;background:linear-gradient(180deg,#fffef9,#fff8df);border-radius:9px}
+.module-card{padding:20px;margin-bottom:18px}.module-card h2{margin:0 0 5px;font-size:22px}.eyebrow{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#a32327;font-weight:900}
+.casehead{display:flex;justify-content:space-between;gap:12px;align-items:start;flex-wrap:wrap}.case-tag{background:#ffe9a0;color:#654b00;border-radius:20px;padding:5px 10px;font-size:12px;font-weight:900}
+.steps{counter-reset:step;display:grid;gap:9px;margin-top:12px}.step{counter-increment:step;background:#fffaf0;border:1px solid #f0e1b5;border-radius:11px;padding:10px 12px}.step:before{content:counter(step);display:inline-grid;place-items:center;background:var(--red);color:white;width:23px;height:23px;border-radius:50%;font-weight:900;font-size:12px;margin-right:8px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0}th,td{padding:9px;border:1px solid #eadba8;text-align:left}th{background:#fff0b5}
+footer{text-align:center;color:#796d54;padding:28px 12px;font-size:12px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}aside{position:relative;top:auto;max-height:none}.module-list{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid2,.visuals{grid-template-columns:1fr}.controls{grid-template-columns:repeat(2,1fr)}.hero{padding:24px 18px}}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="kicker">Matematika Teknik 1 · Pertemuan 11</div>
+ <h1>Vektor dalam Rⁿ</h1>
+ <p>Modul pembelajaran interaktif tentang representasi vektor, operasi aljabar, penjumlahan secara geometris, dan panjang vektor. Dilengkapi visual 2D–3D, kalkulator yang dapat diubah, serta 30 studi kasus lintas bidang rekayasa.</p>
+ <div class="hero-meta"><span class="pill">Johan Alfian Pradana</span><span class="pill light">30 modul studi kasus</span><span class="pill light">Visual 2D & 3D</span><span class="pill light">Angka dapat diedit</span></div>
+</header>
+<nav><a href="#tujuan">Tujuan</a><a href="#konsep">Konsep inti</a><a href="#kalkulator">Kalkulator vektor</a><a href="#modul">30 studi kasus</a><a href="#petunjuk">Petunjuk</a></nav>
+<div class="wrap">
+ <section class="panel" id="tujuan">
+  <h2 class="section-title"><span class="num">01</span> Capaian pembelajaran</h2>
+  <p>Setelah mempelajari modul, mahasiswa diharapkan mampu:</p>
+  <ol><li>Menyatakan vektor sebagai daftar komponen terurut dalam Rⁿ.</li><li>Melakukan penjumlahan, pengurangan, dan perkalian skalar.</li><li>Menjelaskan penjumlahan vektor dengan metode ujung-ke-pangkal (head-to-tail).</li><li>Menghitung panjang atau norma vektor dan jarak antara dua titik.</li><li>Menafsirkan hasil operasi vektor pada persoalan rekayasa dan kehidupan sehari-hari.</li></ol>
+  <div class="note"><b>Alur belajar:</b> representasi vektor → operasi aljabar → visualisasi penjumlahan → panjang vektor dan jarak → penerapan studi kasus.</div>
+ </section>
+ <div class="layout">
+  <aside id="modul">
+   <h3>Perpustakaan 30 modul</h3><p style="font-size:12px;color:#75694f;margin-top:-5px">Pilih kasus untuk memuat data awal dan narasi masalah.</p>
+   <div class="module-list" id="moduleList"></div>
+  </aside>
+  <main>
+   <section class="panel" id="konsep">
+    <h2 class="section-title"><span class="num">02</span> Ringkasan konsep dan formula</h2>
+    <div class="grid2">
+     <div class="concept"><h3>A. Vektor dalam Rⁿ</h3><p>Vektor adalah susunan terurut n bilangan real. Setiap bilangan disebut komponen vektor.</p><div class="formula">u = [u₁, u₂, …, uₙ]ᵀ ∈ Rⁿ</div><p>Untuk R², vektor memiliki dua komponen (u₁,u₂); untuk R³ memiliki tiga komponen (u₁,u₂,u₃).</p></div>
+     <div class="concept"><h3>B. Operasi aljabar vektor</h3><div class="formula">u + v = [u₁+v₁, …, uₙ+vₙ]ᵀ</div><div class="formula">u − v = u + (−v)</div><div class="formula">k u = [ku₁, ku₂, …, kuₙ]ᵀ</div><p>Operasi dilakukan pada komponen yang bersesuaian. Vektor yang dijumlahkan harus memiliki dimensi sama.</p></div>
+     <div class="concept"><h3>C. Makna geometris penjumlahan</h3><p>Letakkan pangkal vektor kedua di ujung vektor pertama. Resultan ditarik dari pangkal vektor pertama menuju ujung vektor kedua.</p><div class="formula">R = u + v</div><p>Metode ini dikenal sebagai metode segitiga atau head-to-tail.</p></div>
+     <div class="concept"><h3>D. Panjang (norma) vektor</h3><div class="formula">‖u‖ = √(u₁² + u₂² + … + uₙ²)</div><p>Untuk R² dan R³:</p><div class="formula">‖u‖₂ = √(u₁²+u₂²)<br>‖u‖₃ = √(u₁²+u₂²+u₃²)</div></div>
+    </div>
+    <div class="concept" style="margin-top:14px"><h3>E. Jarak antara dua titik</h3><p>Jika P=(p₁,…,pₙ) dan Q=(q₁,…,qₙ), vektor perpindahan dari P ke Q adalah Q−P.</p><div class="formula">d(P,Q) = ‖Q−P‖ = √[Σₖ₌₁ⁿ(qₖ−pₖ)²]</div></div>
+   </section>
+   <section class="panel" id="kalkulator">
+    <h2 class="section-title"><span class="num">03</span> Kalkulator dan visualisasi vektor</h2>
+    <p>Ubah nilai komponen u dan v. Pilih dimensi 2D atau 3D, lalu amati hasil operasi dan perubahan visual.</p>
+    <div class="controls">
+     <div class="field"><label>Dimensi</label><select id="dim"><option value="2">2D · R²</option><option value="3" selected>3D · R³</option></select></div>
+     <div class="field"><label>u₁</label><input id="u1" type="number" step="any" value="3"></div><div class="field"><label>u₂</label><input id="u2" type="number" step="any" value="2"></div><div class="field" id="u3wrap"><label>u₃</label><input id="u3" type="number" step="any" value="1"></div>
+     <div class="field"><label>v₁</label><input id="v1" type="number" step="any" value="1"></div><div class="field"><label>v₂</label><input id="v2" type="number" step="any" value="3"></div><div class="field" id="v3wrap"><label>v₃</label><input id="v3" type="number" step="any" value="2"></div>
+     <div class="field"><label>Skalar k</label><input id="k" type="number" step="any" value="2"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="action" onclick="calculate()">Hitung vektor</button><button class="action secondary" onclick="resetCalc()">Kembalikan contoh</button></div>
+    <div class="result" id="results" aria-live="polite"></div>
+    <div class="visuals" style="margin-top:14px">
+     <div class="visual"><h4>Visual 2D · proyeksi komponen x–y</h4><svg id="svg2" viewBox="0 0 500 320" role="img" aria-label="Grafik vektor dua dimensi"></svg></div>
+     <div class="visual"><h4>Visual 3D · proyeksi isometrik</h4><svg id="svg3" viewBox="0 0 500 320" role="img" aria-label="Proyeksi vektor tiga dimensi"></svg></div>
+    </div>
+    <div class="note"><b>Catatan visual:</b> grafik 2D menampilkan komponen x–y. Grafik 3D memakai proyeksi isometrik agar tiga komponen dapat terlihat pada bidang layar; panjang visual bukan pengganti perhitungan norma eksak.</div>
+   </section>
+   <section class="module-card" id="activeCase">
+    <div class="casehead"><div><div class="eyebrow">Modul studi kasus terpilih</div><h2 id="caseTitle">01 · Perpindahan AGV di lantai produksi</h2></div><span class="case-tag" id="caseCategory">Manufaktur</span></div>
+    <p id="caseStory"></p>
+    <div class="note" id="caseQuestion"></div>
+    <h3>Data kasus (dapat diedit)</h3>
+    <div class="controls" id="caseInputs"></div>
+    <button class="action" onclick="solveCase()">Hitung studi kasus</button>
+    <div class="result" id="caseResult" aria-live="polite">Pilih atau ubah data kasus, lalu tekan Hitung studi kasus.</div>
+    <div class="steps" id="caseSteps"></div>
+   </section>
+   <section class="panel" id="petunjuk">
+    <h2 class="section-title"><span class="num">04</span> Petunjuk penggunaan</h2>
+    <ol><li>Pilih satu dari 30 modul pada daftar di sebelah kiri.</li><li>Baca narasi, tujuan perhitungan, dan satuan yang digunakan.</li><li>Ubah angka pada kolom data jika ingin mencoba skenario berbeda.</li><li>Tekan <b>Hitung studi kasus</b> untuk memperoleh langkah hitung dan interpretasi.</li><li>Gunakan kalkulator vektor untuk mengeksplorasi operasi u+v, u−v, ku, serta norma.</li><li>Bandingkan hasil numerik dengan visual 2D dan proyeksi 3D.</li></ol>
+    <div class="note"><b>Penggunaan akademik:</b> kasus disusun sebagai model pembelajaran matematis. Untuk keputusan industri nyata, verifikasi satuan, sistem koordinat, asumsi, batas operasi, dan data lapangan terlebih dahulu.</div>
+   </section>
+  </main>
+ </div>
+</div>
+<footer>Matematika Teknik 1 · Pertemuan 11 · Materi vektor Rⁿ · Johan Alfian Pradana</footer>
+<script>
+const $=id=>document.getElementById(id), num=id=>Number($(id).value)||0;
+const cases=[
+{title:"Perpindahan AGV di lantai produksi",cat:"Manufaktur · Material handling",story:"Automated Guided Vehicle (AGV) bergerak dari titik awal menuju dua segmen lintasan berurutan pada lantai produksi.",question:"Tentukan vektor perpindahan total, panjang perpindahan total, dan perubahan posisi vertikal.",labels:["u₁ · gerak x (m)","u₂ · gerak y (m)","u₃ · gerak z (m)","v₁ · gerak x (m)","v₂ · gerak y (m)","v₃ · gerak z (m)"],vals:[12,4,0,5,7,0],type:"sum",unit:"m"},
+{title:"Resultan gaya pada meja perakitan",cat:"Manufaktur · Mekanika",story:"Sebuah jig menerima dua gaya pada bidang kerja. Komponen gaya dinyatakan terhadap sumbu horizontal dan vertikal.",question:"Hitung resultan gaya dan besar resultannya.",labels:["F₁x (N)","F₁y (N)","F₁z (N)","F₂x (N)","F₂y (N)","F₂z (N)"],vals:[120,40,0,-30,80,0],type:"sum",unit:"N"},
+{title:"Perpindahan robot pick-and-place",cat:"Manufaktur · Robotika",story:"End-effector robot berpindah dari satu titik kerja ke titik berikutnya dalam koordinat kartesius 3D.",question:"Hitung vektor perpindahan total dan jarak lurus antarposisi.",labels:["Δx₁ (mm)","Δy₁ (mm)","Δz₁ (mm)","Δx₂ (mm)","Δy₂ (mm)","Δz₂ (mm)"],vals:[100,40,30,50,-20,10],type:"sum",unit:"mm"},
+{title:"Kecepatan relatif dua conveyor",cat:"Manufaktur · Sistem produksi",story:"Dua conveyor memiliki vektor kecepatan pada arah yang sama maupun berbeda.",question:"Tentukan vektor gabungan kecepatan menurut model penjumlahan vektor.",labels:["v₁x (m/s)","v₁y (m/s)","v₁z (m/s)","v₂x (m/s)","v₂y (m/s)","v₂z (m/s)"],vals:[1.2,0.2,0,0.8,-0.1,0],type:"sum",unit:"m/s"},
+{title:"Gaya tarik kabel pada mesin",cat:"Manufaktur · Perawatan",story:"Dua tarikan kabel bekerja pada sebuah komponen mesin. Arah gaya dinyatakan dalam tiga sumbu.",question:"Hitung resultan gaya tiga dimensi.",labels:["F₁x (N)","F₁y (N)","F₁z (N)","F₂x (N)","F₂y (N)","F₂z (N)"],vals:[30,20,10,15,-5,25],type:"sum",unit:"N"},
+{title:"Koreksi posisi benda kerja",cat:"Manufaktur · Metrologi",story:"Hasil pengukuran menunjukkan selisih posisi benda kerja dari titik target.",question:"Hitung vektor koreksi dari posisi aktual menuju posisi target dan panjang koreksinya.",labels:["Pₓ aktual (mm)","Pᵧ aktual (mm)","P_z aktual (mm)","Qₓ target (mm)","Qᵧ target (mm)","Q_z target (mm)"],vals:[24,16,8,20,12,5],type:"distance",unit:"mm"},
+{title:"Lintasan forklift di gudang",cat:"Manufaktur · Logistik",story:"Forklift bergerak ke timur, kemudian ke utara, lalu menempuh perubahan elevasi ramp.",question:"Tentukan perpindahan total dan jarak lurus dari titik awal.",labels:["Segmen 1 x (m)","Segmen 1 y (m)","Segmen 1 z (m)","Segmen 2 x (m)","Segmen 2 y (m)","Segmen 2 z (m)"],vals:[8,0,0,0,6,1.5],type:"sum",unit:"m"},
+{title:"Resultan beban pada rangka",cat:"Manufaktur · Struktur",story:"Rangka mesin menerima dua vektor beban yang bekerja pada titik sambungan.",question:"Hitung komponen resultan dan norma resultan beban.",labels:["P₁x (kN)","P₁y (kN)","P₁z (kN)","P₂x (kN)","P₂y (kN)","P₂z (kN)"],vals:[4,2,1,-1,3,2],type:"sum",unit:"kN"},
+{title:"Skala pembesaran perpindahan",cat:"Matematika teknik · Skalar",story:"Vektor perpindahan desain dikalikan faktor skala untuk simulasi lintasan.",question:"Hitung vektor hasil skala dan panjangnya.",labels:["u₁","u₂","u₃","v₁ (tidak digunakan)","v₂ (tidak digunakan)","v₃ (tidak digunakan)"],vals:[3,4,0,0,0,0],type:"scale",k:2.5,unit:"satuan"},
+{title:"Jarak dua titik inspeksi",cat:"Matematika teknik · Geometri",story:"Dua titik inspeksi pada komponen dinyatakan dalam koordinat tiga dimensi.",question:"Hitung vektor dari titik P ke Q dan jarak Euclidean di antara keduanya.",labels:["P₁","P₂","P₃","Q₁","Q₂","Q₃"],vals:[1,2,3,5,5,3],type:"distance",unit:"satuan"},
+{title:"Resultan kecepatan pesawat nirawak",cat:"Rekayasa · Aeronautika",story:"Drone inspeksi bergerak dengan dua komponen kecepatan akibat lintasan dan angin.",question:"Tentukan resultan vektor kecepatan dan besar kecepatannya.",labels:["v₁x (m/s)","v₁y (m/s)","v₁z (m/s)","v₂x (m/s)","v₂y (m/s)","v₂z (m/s)"],vals:[6,2,1,1,-1,0],type:"sum",unit:"m/s"},
+{title:"Perpindahan kapal pada koordinat lokal",cat:"Rekayasa · Maritim",story:"Kapal bergerak pada bidang horizontal dengan perubahan posisi vertikal diukur sebagai komponen elevasi relatif.",question:"Hitung perpindahan gabungan dan norma vektor.",labels:["s₁x (km)","s₁y (km)","s₁z (km)","s₂x (km)","s₂y (km)","s₂z (km)"],vals:[3,4,0,2,-1,0],type:"sum",unit:"km"},
+{title:"Gaya resultan pada sambungan rangka",cat:"Rekayasa · Sipil",story:"Sebuah sambungan menerima dua gaya dengan arah berbeda pada koordinat 3D.",question:"Hitung vektor gaya resultan dan magnitudonya.",labels:["F₁x (kN)","F₁y (kN)","F₁z (kN)","F₂x (kN)","F₂y (kN)","F₂z (kN)"],vals:[10,0,5,0,8,-2],type:"sum",unit:"kN"},
+{title:"Resultan perpindahan pejalan kaki",cat:"Umum · Kinematika",story:"Seseorang berjalan pada dua segmen lintasan di area kampus.",question:"Tentukan perpindahan bersih dan jarak lurus dari titik awal.",labels:["s₁x (m)","s₁y (m)","s₁z (m)","s₂x (m)","s₂y (m)","s₂z (m)"],vals:[4,0,0,0,3,0],type:"sum",unit:"m"},
+{title:"Vektor posisi titik pada ruang 3D",cat:"Matematika teknik · R³",story:"Sebuah titik pada ruang kerja mesin ditentukan relatif terhadap titik asal koordinat.",question:"Nyatakan vektor posisi dan hitung panjangnya.",labels:["x (mm)","y (mm)","z (mm)","—","—","—"],vals:[6,8,3,0,0,0],type:"norm",unit:"mm"},
+{title:"Pengurangan dua vektor gaya",cat:"Manufaktur · Analisis gaya",story:"Insinyur membandingkan gaya aktual dan gaya acuan untuk memperoleh vektor selisih.",question:"Hitung u−v dan norma selisihnya.",labels:["u₁ (N)","u₂ (N)","u₃ (N)","v₁ (N)","v₂ (N)","v₃ (N)"],vals:[50,30,20,35,10,5],type:"subtract",unit:"N"},
+{title:"Penyesuaian skala gambar teknik",cat:"Rekayasa · Desain",story:"Dimensi vektor desain dikalikan faktor skala untuk menghasilkan representasi yang diperbesar.",question:"Tentukan vektor setelah dikalikan skalar k.",labels:["u₁ (mm)","u₂ (mm)","u₃ (mm)","—","—","—"],vals:[20,12,5,0,0,0],type:"scale",k:1.5,unit:"mm"},
+{title:"Normalisasi arah gerak robot",cat:"Manufaktur · Robotika",story:"Robot perlu bergerak pada arah tertentu dengan vektor satuan agar besar kecepatan dapat diatur terpisah.",question:"Hitung panjang u dan vektor satuan u/‖u‖.",labels:["u₁","u₂","u₃","—","—","—"],vals:[3,4,12,0,0,0],type:"unit",unit:""},
+{title:"Jarak pusat dua komponen",cat:"Manufaktur · Desain produk",story:"Pusat dua komponen mekanik diukur dalam koordinat ruang untuk menentukan jarak antarpusat.",question:"Hitung jarak Euclidean antara kedua pusat.",labels:["Pₓ (mm)","Pᵧ (mm)","P_z (mm)","Qₓ (mm)","Qᵧ (mm)","Q_z (mm)"],vals:[10,15,5,16,19,17],type:"distance",unit:"mm"},
+{title:"Resultan gaya angin pada struktur",cat:"Rekayasa · Lingkungan",story:"Struktur menerima dua komponen gaya angin dari arah berbeda.",question:"Tentukan resultan gaya tiga dimensi.",labels:["F₁x (N)","F₁y (N)","F₁z (N)","F₂x (N)","F₂y (N)","F₂z (N)"],vals:[120,40,0,-20,30,10],type:"sum",unit:"N"},
+{title:"Perpindahan elevator barang",cat:"Manufaktur · Intr logistik",story:"Elevator barang berpindah vertikal dan horizontal menuju lokasi penempatan.",question:"Hitung perpindahan total dan panjang perpindahannya.",labels:["s₁x (m)","s₁y (m)","s₁z (m)","s₂x (m)","s₂y (m)","s₂z (m)"],vals:[0,0,4,2,1,0],type:"sum",unit:"m"},
+{title:"Resultan momentum sederhana",cat:"Matematika teknik · Fisika",story:"Dua kontribusi momentum pada arah koordinat yang berbeda dijumlahkan sebagai vektor.",question:"Hitung momentum total berdasarkan komponen yang diberikan.",labels:["p₁x (kg m/s)","p₁y","p₁z","p₂x (kg m/s)","p₂y","p₂z"],vals:[4,2,0,1,-3,0],type:"sum",unit:"kg·m/s"},
+{title:"Perubahan posisi nozzle",cat:"Manufaktur · Proses",story:"Nozzle penyemprot berpindah dari posisi awal ke posisi akhir dalam ruang kerja mesin.",question:"Hitung vektor perpindahan nozzle dan panjangnya.",labels:["Pₓ (mm)","Pᵧ (mm)","P_z (mm)","Qₓ (mm)","Qᵧ (mm)","Q_z (mm)"],vals:[25,10,15,40,25,20],type:"distance",unit:"mm"},
+{title:"Resultan gaya pada lengan mekanik",cat:"Manufaktur · Mekatronika",story:"Lengan mekanik menerima gaya dari dua aktuator pada sistem koordinat lokal.",question:"Hitung resultan gaya dan besar resultannya.",labels:["F₁x (N)","F₁y (N)","F₁z (N)","F₂x (N)","F₂y (N)","F₂z (N)"],vals:[15,25,10,10,-5,20],type:"sum",unit:"N"},
+{title:"Vektor arah aliran fluida",cat:"Rekayasa · Fluida",story:"Dua kontribusi kecepatan aliran digabungkan sebagai vektor pada titik pengamatan.",question:"Tentukan vektor resultan kecepatan aliran.",labels:["v₁x (m/s)","v₁y (m/s)","v₁z (m/s)","v₂x (m/s)","v₂y (m/s)","v₂z (m/s)"],vals:[2,1,0.5,0.5,0.5,-0.2],type:"sum",unit:"m/s"},
+{title:"Panjang kabel diagonal",cat:"Manufaktur · Instalasi",story:"Kabel menghubungkan dua titik pemasangan dengan selisih koordinat pada tiga sumbu.",question:"Hitung panjang kabel lurus berdasarkan jarak Euclidean.",labels:["Pₓ (m)","Pᵧ (m)","P_z (m)","Qₓ (m)","Qᵧ (m)","Q_z (m)"],vals:[0,0,0,3,4,12],type:"distance",unit:"m"},
+{title:"Skalar negatif pada arah gaya",cat:"Matematika teknik · Skalar",story:"Arah vektor dibalik untuk merepresentasikan gaya yang berlawanan arah dengan vektor acuan.",question:"Hitung ku dan jelaskan perubahan arah serta panjangnya.",labels:["u₁ (N)","u₂ (N)","u₃ (N)","—","—","—"],vals:[2,-3,6,0,0,0],type:"scale",k:-2,unit:"N"},
+{title:"Penjumlahan tiga segmen lintasan",cat:"Manufaktur · Intralogistik",story:"AGV menempuh tiga segmen lintasan. Dua segmen pertama digabungkan pada data u dan v; segmen ketiga ditambahkan pada hasil.",question:"Jumlahkan tiga segmen perpindahan dan hitung norma resultannya.",labels:["s₁x (m)","s₁y (m)","s₁z (m)","s₂x (m)","s₂y (m)","s₂z (m)"],vals:[5,0,0,0,4,0],type:"sum3",extra:[-1,2,1],unit:"m"},
+{title:"Jarak titik sensor ke titik referensi",cat:"Manufaktur · Instrumentasi",story:"Posisi sensor dan titik referensi dinyatakan dalam koordinat 3D pada mesin.",question:"Hitung jarak sensor terhadap titik referensi.",labels:["Pₓ (mm)","Pᵧ (mm)","P_z (mm)","Qₓ (mm)","Qᵧ (mm)","Q_z (mm)"],vals:[2,3,4,8,6,4],type:"distance",unit:"mm"},
+{title:"Resultan gaya pada komponen turbin",cat:"Rekayasa · Energi",story:"Komponen turbin menerima gaya dari dua arah yang berbeda.",question:"Tentukan resultan gaya dan magnitudonya.",labels:["F₁x (kN)","F₁y (kN)","F₁z (kN)","F₂x (kN)","F₂y (kN)","F₂z (kN)"],vals:[7,2,4,-2,5,1],type:"sum",unit:"kN"},
+{title:"Perpindahan kamera inspeksi",cat:"Manufaktur · Quality control",story:"Kamera inspeksi bergerak dari satu titik pengamatan ke titik berikutnya pada ruang produksi.",question:"Tentukan vektor perpindahan dan jarak lurus kamera.",labels:["Pₓ (m)","Pᵧ (m)","P_z (m)","Qₓ (m)","Qᵧ (m)","Q_z (m)"],vals:[1.5,2,1,4.5,6,3],type:"distance",unit:"m"}
+];
+let active=0;
+function fmt(x){return Number(x.toFixed(4)).toString()}
+function norm(a){return Math.sqrt(a.reduce((s,x)=>s+x*x,0))}
+function vec(a){return"("+a.map(fmt).join(", ")+")"}
+function renderList(){ $("moduleList").innerHTML=cases.map((c,i)=>`<button class="${i===active?'active':''}" onclick="loadCase(${i})"><b>${String(i+1).padStart(2,'0')}.</b> ${c.title}<br><small>${c.cat}</small></button>`).join("")}
+function loadCase(i){active=i;const c=cases[i];renderList();$("caseTitle").textContent=String(i+1).padStart(2,"0")+" · "+c.title;$("caseCategory").textContent=c.cat;$("caseStory").textContent=c.story;$("caseQuestion").textContent=c.question;$("caseInputs").innerHTML=c.labels.map((l,j)=>`<div class="field"><label>${l}</label><input type="number" step="any" id="c${j}" value="${c.vals[j]??0}" ${l==="—"?'disabled':''}></div>`).join("")+(c.type==="scale"?`<div class="field"><label>Skalar k</label><input type="number" step="any" id="ck" value="${c.k??2}"></div>`:"");$("caseResult").textContent="Data siap digunakan. Tekan Hitung studi kasus untuk melihat hasil."; $("caseSteps").innerHTML=""}
+function solveCase(){const c=cases[active],a=Array.from({length:6},(_,i)=>Number($("c"+i)?.value)||0),u=a.slice(0,3),v=a.slice(3,6);let r=[],steps=[],title="",description="";
+if(c.type==="sum"||c.type==="sum3"){r=u.map((x,i)=>x+v[i]);steps=[`Vektor pertama: u = ${vec(u)} ${c.unit}`,`Vektor kedua: v = ${vec(v)} ${c.unit}`,`Jumlahkan komponen bersesuaian: u + v = ${vec(r)} ${c.unit}`];if(c.type==="sum3"){let e=c.extra;r=r.map((x,i)=>x+e[i]);steps.push(`Segmen ketiga w = ${vec(e)} ${c.unit}`,`Resultan akhir: u + v + w = ${vec(r)} ${c.unit}`)}title="Resultan vektor";description=`Panjang resultan = ${fmt(norm(r))} ${c.unit}.`}
+else if(c.type==="subtract"){r=u.map((x,i)=>x-v[i]);steps=[`u = ${vec(u)} ${c.unit}`,`v = ${vec(v)} ${c.unit}`,`Kurangkan komponen bersesuaian: u − v = ${vec(r)} ${c.unit}`];title="Selisih vektor";description=`Norma selisih = ${fmt(norm(r))} ${c.unit}.`}
+else if(c.type==="scale"){let k=Number($("ck")?.value??c.k)||0;r=u.map(x=>k*x);steps=[`Vektor awal: u = ${vec(u)} ${c.unit}`,`Skalar: k = ${fmt(k)}`,`Kalikan setiap komponen: ku = ${vec(r)} ${c.unit}`,`Panjang awal ‖u‖ = ${fmt(norm(u))}; panjang hasil ‖ku‖ = |k|‖u‖ = ${fmt(Math.abs(k)*norm(u))} ${c.unit}`];title="Perkalian skalar";description=k<0?"Karena k negatif, arah vektor berbalik.":k===0?"Karena k = 0, hasilnya vektor nol.":"Karena k positif, arah vektor tetap."}
+else if(c.type==="distance"){let p=u,q=v;r=q.map((x,i)=>x-p[i]);steps=[`Titik awal P = ${vec(p)}`,`Titik akhir Q = ${vec(q)}`,`Vektor perpindahan P ke Q: Q − P = ${vec(r)} ${c.unit}`,`Jarak d(P,Q) = √[${r.map(x=>fmt(x*x)).join(" + ")}] = ${fmt(norm(r))} ${c.unit}`];title="Jarak dua titik";description=`Jarak lurus antara kedua titik adalah ${fmt(norm(r))} ${c.unit}.`}
+else if(c.type==="norm"){r=u;steps=[`Vektor posisi u = ${vec(u)} ${c.unit}`,`‖u‖ = √(${u.map(x=>fmt(x*x)).join(" + ")})`, `‖u‖ = ${fmt(norm(u))} ${c.unit}`];title="Panjang vektor";description=`Norma vektor adalah ${fmt(norm(u))} ${c.unit}.`}
+else if(c.type==="unit"){r=u.map(x=>x/(norm(u)||1));steps=[`Vektor u = ${vec(u)}`,`Panjang ‖u‖ = ${fmt(norm(u))}`,`Vektor satuan û = u/‖u‖ = ${vec(r)}`,`Pemeriksaan ‖û‖ = ${fmt(norm(r))} (mendekati 1)`];title="Normalisasi vektor";description="Vektor satuan mempertahankan arah vektor awal dan memiliki panjang 1."}
+$("caseResult").innerHTML=`<strong>${title}</strong><div class="big">${vec(r)}</div>${description}`;$("caseSteps").innerHTML=steps.map(s=>`<div class="step">${s}</div>`).join("")}
+function calculate(){let d=+$("dim").value,u=[num("u1"),num("u2"),num("u3")],v=[num("v1"),num("v2"),num("v3")],k=num("k");if(d===2){u=u.slice(0,2);v=v.slice(0,2)}let add=u.map((x,i)=>x+v[i]),sub=u.map((x,i)=>x-v[i]),sc=u.map(x=>k*x);$("results").innerHTML=`<table><tr><th>Operasi</th><th>Hasil</th><th>Panjang / norma</th></tr><tr><td>u + v</td><td>${vec(add)}</td><td>${fmt(norm(add))}</td></tr><tr><td>u − v</td><td>${vec(sub)}</td><td>${fmt(norm(sub))}</td></tr><tr><td>k u, k=${fmt(k)}</td><td>${vec(sc)}</td><td>${fmt(norm(sc))}</td></tr><tr><td>‖u‖</td><td>${fmt(norm(u))}</td><td>—</td></tr><tr><td>‖v‖</td><td>${fmt(norm(v))}</td><td>—</td></tr></table><b>Identitas penting:</b> ‖ku‖ = |k|‖u‖ = ${fmt(Math.abs(k)*norm(u))}.` ;draw2(u,v,add);draw3(u,v,add)}
+function resetCalc(){["u1","u2","u3","v1","v2","v3","k"].forEach((id,i)=>$(id).value=[3,2,1,1,3,2,2][i]);$("dim").value="3";toggleDim();calculate()}
+function toggleDim(){let is2=$("dim").value==="2";$("u3wrap").style.opacity=is2?".35":"1";$("v3wrap").style.opacity=is2?".35":"1";$("u3").disabled=$("v3").disabled=is2;calculate()}
+function arrowSvg(x1,y1,x2,y2,color,label,offset=0){return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="4" stroke-linecap="round" marker-end="url(#arr)"/><text x="${(x1+x2)/2+6}" y="${(y1+y2)/2-8+offset}" fill="${color}" font-size="14" font-weight="bold">${label}</text>`}
+function draw2(u,v,r){let svg=$("svg2"),cx=245,cy=255,scale= Math.min(34,180/(Math.max(1,...u.map(Math.abs),...v.map(Math.abs),...r.map(Math.abs))));let xy=a=>[cx+a[0]*scale,cy-a[1]*scale];let U=xy([u[0],u[1]]),V=xy([v[0],v[1]]),R=xy([r[0],r[1]]),UV=[cx+u[0]*scale-v[0]*scale,cy-(u[1]+v[1])*scale];svg.innerHTML=`<defs><marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.2"/></marker></defs><line x1="25" y1="${cy}" x2="475" y2="${cy}" stroke="#9a9078"/><line x1="${cx}" y1="20" x2="${cx}" y2="295" stroke="#9a9078"/><text x="466" y="${cy-8}" fill="#766b54">x</text><text x="${cx+8}" y="24" fill="#766b54">y</text>${arrowSvg(cx,cy,U[0],U[1],"#c9252b","u")}${arrowSvg(cx,cy,V[0],V[1],"#d69b00","v",12)}${arrowSvg(cx,cy,R[0],R[1],"#167a50","u+v",-12)}<text x="18" y="22" fill="#766b54" font-size="12">Panjang dan arah divisualisasikan pada bidang x–y</text>`}
+function draw3(u,v,r){let svg=$("svg3"),cx=245,cy=235,scale=Math.min(25,130/(Math.max(1,...u.map(Math.abs),...v.map(Math.abs),...r.map(Math.abs))));let proj=a=>[cx+(a[0]-a[1])*.72*scale,cy-(a[2]+(a[0]+a[1])*.38)*scale];let U=proj(u.length===3?u:[...u,0]),V=proj(v.length===3?v:[...v,0]),R=proj(r.length===3?r:[...r,0]);let origin=[cx,cy];svg.innerHTML=`<defs><marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.2"/></marker></defs><line x1="${cx}" y1="${cy}" x2="${cx+150}" y2="${cy}" stroke="#b3a98e" stroke-width="2"/><line x1="${cx}" y1="${cy}" x2="${cx-100}" y2="${cy+55}" stroke="#b3a98e" stroke-width="2"/><line x1="${cx}" y1="${cy}" x2="${cx}" y2="30" stroke="#b3a98e" stroke-width="2"/><text x="${cx+153}" y="${cy+4}" font-size="13">x</text><text x="${cx-112}" y="${cy+66}" font-size="13">y</text><text x="${cx+8}" y="27" font-size="13">z</text>${arrowSvg(cx,cy,U[0],U[1],"#c9252b","u")}${arrowSvg(cx,cy,V[0],V[1],"#d69b00","v",12)}${arrowSvg(cx,cy,R[0],R[1],"#167a50","u+v",-12)}<text x="16" y="20" fill="#766b54" font-size="12">Proyeksi isometrik tiga komponen</text>`}
+$("dim").addEventListener("change",toggleDim);["u1","u2","u3","v1","v2","v3","k"].forEach(id=>$(id).addEventListener("input",calculate));
+loadCase(0);toggleDim();calculate();
+</script>
+</body>
+</html>
